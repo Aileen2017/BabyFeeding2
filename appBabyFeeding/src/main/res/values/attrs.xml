@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+      <declare-styleable name="BUPieView">
+        <attr name="leftColor" format="color"/>
+        <attr name="rightColor" format="color"/>
+      </declare-styleable>
+      
+       <declare-styleable name="VolumnLineView">
+        <attr name="totalUnitsX" format="integer"/>
+        <attr name="totalUnitsY" format="integer"/>
+        <attr name="gridColor" format="color"/>
+        <attr name="txtColor" format="color"/>
+       
+      </declare-styleable>
+</resources>

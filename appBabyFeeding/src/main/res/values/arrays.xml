@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="listentries">
+        <item>@string/volumn_unit_milliliter</item>
+        <item>@string/volumn_unit_ounce</item>
+       
+    </string-array>
+    <string-array name="listvalues">
+        <item>1</item>
+        <item>2</item>
+       
+    </string-array>  
+     <string-array name="listentriesTime">
+        <item>@string/time_type__option1</item>
+        <item>@string/time_type__option2</item>
+       
+    </string-array>
+    <string-array name="listvaluesTime">
+        <item>1</item>
+        <item>2</item>
+       
+    </string-array>      
+</resources>

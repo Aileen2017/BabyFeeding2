@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="title_activity_main_activity">BreastFeeding Journal</string>
+    <string name="title_activity_breast_feeding">BreastFeedingActivity</string>
+    <string name="app_name">Breastfeeding Journal</string>
+    <string name="title_activity_breast_pump">BreastPumpActivity</string>
+    <string name="title_activity_baby_nappy">BabyNappyActivity</string>
+    <string name="title_buttonEnter">Enter</string>
+    <string name="title_buttonDelete">Delete</string>
+    <string name="title_buttonCancel">Cancel</string>
+    <string name="title_buttonFeed">Feed</string>
+    <string name="title_buttonNappy">Nappy</string>
+    <string name="title_buttonPump">Pump</string>
+    <string name="AddFeed">Add one feed</string>
+    <string name="AddNappy">Add one nappy change</string>
+    <string name="AddPump">Add one pump</string>
+    <string name="StartTime">Start Time</string>
+    <string name="Wet">Wet</string>
+    <string name="Dirty">Dirty</string>
+    <string name="NappyEvent">Nappy Event</string>
+    <string name="LeftBreast">Left Breast</string>
+    <string name="RightBreast">Right Breast</string>
+    <string name="Minutes">Minutes</string>
+    <string name="Milliliters">Milliliters</string>
+    <string name="BottleFeed">Bottle</string>
+    <string name="ExpressFeed">Express</string>
+    <string name="InputTime">Input the time</string>
+    <string name="Quantity">Quantity</string>
+    <string name="title_activity_export_db">ExportDBActivity</string>
+    <string name="menu_exportData">Data Backup</string>
+    <string name="menu_importData">Data Recovery</string>
+    <string name="title_activity_display_xmldata">DisplayXMLDataActivity</string>
+    <string name="title_activity_main_activity3">MainActivity3</string>
+    <string name="database_file">BFData.xml</string>
+    <string name="market_name">market://details?id=com.dropbox.android</string>
+    <string name="targetPackage_name">com.dropbox.android</string>
+    <string name="totalFeedS1">" Total feed of the day: "</string>
+    <string name="minsLeftS2">"min(Left:"</string>
+    <string name="minsRightS3">", Right:"</string>
+    <string name="endBracketS4">"), "</string>
+    <string name="mlsBottleS5">"ml(Bottle:"</string>
+     <string name="mlsBottleS5Ounce">"oz(Bottle:"</string>
+    
+    <string name="expressS6">", Express:"</string>
+    <string name="endBracket2S7">");" </string>
+    <string name="breastUsageS8">" Breast Usage: "</string>
+    <string name="leftS9">" Left: "</string>
+    <string name="minsS10">"min,"</string>
+    <string name="rightS11">" Right :"</string>
+    <string name="mins2S12">"min;"</string>
+    <string name="pumpLeftS13">" Pump: Left ("</string>
+    <string name="plminsS14">"min, "</string>
+    <string name="plmlsS15">"ml), "</string>
+    <string name="plmlsS15Ounce">"oz), "</string>
+    
+    <string name="prmlsS16">"Right ("</string>
+    <string name="prmlsS17">"min,"</string>
+    <string name="prmlsS18">"ml)."</string>
+    <string name="prmlsS18Ounce">"oz)."</string>
+    
+    <string name="promptDataImport">"Data recovered!"</string>
+    <string name="promptDataExport">"Data exported!"</string>
+    <string name="title_ExportData">"Export data to "</string>
+    <string name="fileName">"BreastfeedingJournal"</string>
+    <string name="title_ImportData">"Select file to import"</string>
+    <string name="title_buttonYes">"Yes"</string>
+    <string name="title_buttonNo">"No"</string>
+    <string name="title_warning">"Warning"</string>
+    <string name="message_dataimport">"Do you really want to override data?"</string>
+    <string name="message_failimport">"Failed to import data:"</string>
+    <string name="action_settings">Paramètres</string>
+    <string name="UpdateFeed">Update one feed event</string>
+    <string name="UpdateNappy">Update one nappy event</string>
+    <string name="UpdatePump">Update one pump event</string>
+    <string name="title_activity_show_feeding_q">Feeds Chart by Day</string>
+    <string name="menu_showFeedQbyDay">Chart total feeds by day</string>
+    <string name="menu_showFeedQbyHour">Chart total feeds by hour</string>
+    <string name="menu_showBreastU">Chart breast balance</string>
+    <string name="title_activity_show_breast_usage">Breast Balance Chart</string>
+    <string name="domainLabelDay">By Day</string>
+    <string name="domainLabelHour">By Hour</string>
+    <string name="rangeLabel">Minutes/Mils</string>
+    <string name="rangeLabelB">Minutes</string>
+    <string name="chartTitleFeed">How much has my baby eaten?</string>
+    <string name="chartTitleFeedHour">How much has my baby eaten?</string>
+    <string name="chartTitleBB">Breast Balance Chart</string>
+    <string name="title_activity_show_feedingqbyhour">Feeds Chart by Hour</string>
+    <string name="legendBBL">Left Breast</string>
+    <string name="legendBBR">Right Breast</string>
+    <string name="legendBreastfeed">Breastfeed</string>
+    <string name="legendBottlefeed">Bottlefeed</string>
+    <string name="legendPumpfeed">Pumpfeed</string>
+    <string name="title_activity_customer_event">CustomerEventActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="TitleAddCustomerEvent">Add one custom event</string>
+    <string name="EventTitle">Title</string>
+    <string name="EventDesc">Description</string>
+    <string name="title_buttonCustomerEvent">Custom Event</string>
+    <string name="UpdateCE">Update a Custom Event</string>
+    <string name="title_activity_show_user_preferences">ShowUserPreferencesActivity</string>
+    <string name="unitMilli">Milli</string>
+    <string name="menu_userPreferences">User Preferences</string>
+    <string name="unitOunce">Ounce</string>
+    <string name="userPreferences">User Preferences</string>
+    <string name="title_activity_user_preferences">UserPreferencesActivity</string>
+	<string name="volumn_unit_preferences">Volume Unit</string>
+	<string name="time_type__preferences">Time Format</string>
+
+
+<string name="volumn_unit_milliliter">Milliliters</string>
+<string name="volumn_unit_ounce">Ounces</string>
+<string name="volumn_unit_preferencesValue_default">1</string>
+<string name="volumn_unit_preferencesSummary_Ounce">Ounces</string>
+<string name="volumn_unit_preferencesSummary_Milliliter">Milliliters</string>
+<string name="volumn_unit_preferencesSummary_default">Milliliters</string>
+
+<string name="time_type__option1">12 Hours</string>
+<string name="time_type__option2">24 Hours</string>
+<string name="time_type__preferencesValue_default">2</string>
+<string name="time_type__preferencesSummary_24hours">24 Hours</string>
+<string name="time_type__preferencesSummary_12hours">12 Hours</string>
+
+<string name="time_type__preferencesSummary_default">24 Hours</string>
+
+</resources>

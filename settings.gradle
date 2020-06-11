@@ -1,0 +1,2 @@
+include ':appBabyFeeding'
+rootProject.name = "BabyFeeding2020"

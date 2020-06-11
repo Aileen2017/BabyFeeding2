@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    >
+	
+	<LinearLayout 
+	    android:id="@+id/llTitle"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical" >
+	<TextView
+        android:id="@+id/txtViewBNTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        
+        android:textSize="20dp" android:textStyle="bold"
+        android:text="@string/AddNappy" 
+        android:layout_gravity="left"
+        android:paddingTop="15dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="15dp"
+        android:paddingLeft="10dp" />
+	<View
+	    android:layout_width="fill_parent"
+	    android:layout_height="1dp"
+	    android:background="@android:color/darker_gray"/>
+	</LinearLayout> 
+	
+	    <LinearLayout 
+        android:id="@+id/ll1"
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+   		android:orientation="horizontal"
+   		android:weightSum="3" 
+    	>
+	   	 <TextView
+	        android:id="@+id/textView1"
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:text="@string/StartTime" 
+	        android:layout_weight="1"
+	        android:paddingLeft="10dp"/>
+
+	    <EditText
+	        android:id="@+id/edStartTime"
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:ems="10"
+	        android:layout_weight="2"
+	        android:hint="@string/InputTime" />
+	     <requestFocus />
+	         <EditText
+        android:id="@+id/ediLBreastQuantity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number" 
+        android:layout_weight="0"
+        android:hint="@string/Quantity">  
+    	</EditText>
+		</LinearLayout>
+	
+	     <LinearLayout 
+        android:id="@+id/ll2"
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+   		android:orientation="vertical">
+	     
+	    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/NappyEvent" 
+        android:layout_weight="1"
+        android:paddingLeft="10dp"/>
+
+	   	<RadioGroup 
+   		android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:orientation="horizontal"
+    	android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:id="@+id/rg_nappy">
+    	<RadioButton android:id="@+id/radio_wet"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/Wet"
+        android:onClick="onRadioButtonClicked"
+        android:layout_weight="1"/>
+    	<RadioButton android:id="@+id/radio_dirty"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/Dirty"
+        android:onClick="onRadioButtonClicked"
+        android:layout_weight="1"/>
+		</RadioGroup>
+	     
+	     </LinearLayout>
+	     
+	     <LinearLayout 
+	    android:id="@+id/ll5"
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+   		android:orientation="horizontal">
+	    
+
+	    <Button
+	        android:id="@+id/buttonEnter"
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:text="@string/title_buttonEnter" 
+	        android:layout_weight="1"/>
+	    
+	    <Button
+	        android:id="@+id/buttonDel"
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:text="@string/title_buttonDelete" 
+	        android:layout_weight="1"/>
+		</LinearLayout>
+	     
+	     
+	     </LinearLayout>
+	
+	

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <color name="bf">#FFFFFF</color>
+     <color name="red">#FF0000</color>
+     <color name="black">#000000</color>
+        <color name="seafoam">#ffc6f9e5</color>
+    <color name="chartreuse">#ffb6e9b5</color>
+    <color name="emerald">#ffa6d9b5</color>
+    <color name="bluegrass">#ff96c9b5</color>
+    <color name="turquoise">#ff86b9b5</color>
+    <color name="slate">#ff76a9b5</color>
+	<color name="pink">#ffE01B5D</color>
+	<color name="green">#00ff00</color>
+	<color name="blue">#11DAF5</color>
+	<color name="purple">#E058D7</color>
+	<color name="yellow">#F5B811</color>
+	<color name="white">#FFFFFF</color>
+	<color name="dblue">#1237DE</color>
+	<color name="dred">#D61890</color>
+	<color name="turquoise2">#18C499</color>
+	<color name="dgreen">#1EA843</color>
+	<color name="lblue">#6BE3E1</color>
+	<color name="lred">#E8AEBD</color>
+	<color name="lpink">#ffF0DDE3</color>
+	<color name="purple2">#E391E2</color>
+	<color name="blue2">#33b5e5</color>
+	<color name="yellow2">#E0D4A2</color>
+	
+	<color name="feedDBreast">#11DAF5</color>
+	<color name="feedDBottle">#E0D4A2</color>
+	<color name="feedDExpress">#1EA843</color>
+	<color name="feedHBreast">#11DAF5</color>
+	<color name="feedHBottle">#E0D4A2</color>
+	<color name="feedHExpress">#00ff00</color>
+	<color name="chartTitle">#FFFFFF</color>
+	
+	</resources>
+

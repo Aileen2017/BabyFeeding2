@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+   <PreferenceCategory
+        android:title=""> 
+    <ListPreference
+            android:key="Volumn_Unit"
+            android:title="@string/volumn_unit_preferences"
+            android:defaultValue="@string/volumn_unit_preferencesValue_default"
+            android:summary="@string/volumn_unit_preferencesSummary_default"
+            android:entries="@array/listentries"
+            android:entryValues="@array/listvalues" />
+    </PreferenceCategory>
+   <PreferenceCategory
+        android:title="">
+   <ListPreference
+            android:key="Time_Type"
+            android:title="@string/time_type__preferences"
+            android:defaultValue="@string/time_type__preferencesValue_default"
+            android:summary="@string/time_type__preferencesSummary_default"
+            android:entries="@array/listentriesTime"
+            android:entryValues="@array/listvaluesTime" />
+    </PreferenceCategory>
+</PreferenceScreen>

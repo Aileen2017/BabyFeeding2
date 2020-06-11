@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+    <menu xmlns:android="http://schemas.android.com/apk/res/android">
+        <item android:id="@+id/menu_item1ShowFeedQbyDay" android:title="@string/menu_showFeedQbyDay"></item>
+    	
+    	<item android:id="@+id/menu_item1ShowFeedQbyHour" android:title="@string/menu_showFeedQbyHour"></item>
+    	<item android:id="@+id/menu_item1ShowBreastU" android:title="@string/menu_showBreastU"></item>
+      
+        <item android:id="@+id/menu_item1ExportXML" android:title="@string/menu_exportData"></item>
+        <item android:id="@+id/menu_item1ImportXML" android:title="@string/menu_importData"></item>
+    	<item android:id="@+id/menu_item1UserPreferences" android:title="@string/menu_userPreferences"></item>
+ 
+    </menu>

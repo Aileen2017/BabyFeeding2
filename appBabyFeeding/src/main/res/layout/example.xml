@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scroller"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true" >
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView  
+            android:layout_width="fill_parent" 
+            android:layout_height="wrap_content"
+            android:paddingLeft="6dip"
+            android:paddingRight="6dip"
+            android:paddingTop="6dip" 
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Welcome to My Application" />
+            
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:background="#ff106510"
+            android:layout_marginLeft="6dip"
+            android:layout_marginRight="6dip"
+            android:layout_marginTop="6dip"
+            android:layout_marginBottom="12dip" />
+        
+        <TextView  
+            android:layout_width="fill_parent" 
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+
+            android:paddingLeft="6dip"
+            android:paddingRight="6dip"
+            android:paddingBottom="6dip"
+
+            android:text="hello" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+
+            android:background="@android:drawable/bottom_bar"
+            android:gravity="center_vertical">
+            <Button  
+                android:layout_width="0dip"
+                android:layout_weight="1.0" 
+                android:layout_height="wrap_content" 
+
+                android:text="Accept" />
+            <Button  
+                android:layout_width="0dip"
+                android:layout_weight="1.0" 
+                android:layout_height="wrap_content" 
+
+                android:text="Refuse" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

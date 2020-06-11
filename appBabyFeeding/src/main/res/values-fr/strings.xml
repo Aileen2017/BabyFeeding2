@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Le Carnet De Bébé</string>
+    <string name="title_activity_breast_feeding">BreastFeedingActivity</string>
+    <string name="title_activity_main_activity">Le Carnet De Bébé</string>
+    <string name="title_activity_breast_pump">BreastPumpActivity</string>
+    <string name="title_activity_baby_nappy">BabyNappyActivity</string>
+    <string name="title_buttonEnter">Confirmer</string>
+    <string name="title_buttonDelete">Effacer</string>
+    <string name="title_buttonCancel">Ennuler</string>
+    <string name="title_buttonFeed">Tétée</string>
+    <string name="title_buttonNappy">Couche</string>
+    <string name="title_buttonPump">Expression</string>
+    <string name="AddFeed">Tétée</string>
+    <string name="AddNappy">Couche</string>
+    <string name="AddPump">Expression</string>
+    <string name="StartTime">Début</string>
+    <string name="Wet">Mouillée</string>
+    <string name="Dirty">Sale</string>
+    <string name="NappyEvent">Couche</string>
+    <string name="LeftBreast">Sein gauche</string>
+    <string name="RightBreast">Sein droit</string>
+    <string name="Minutes">Minutes</string>
+    <string name="Milliliters">Millilitres</string>
+    <string name="BottleFeed">Biberon</string>
+    <string name="ExpressFeed">Lait tiré</string>
+    <string name="InputTime">Temps</string>
+    <string name="Quantity">Quantité</string>
+    <string name="title_activity_export_db">ExportDBActivity</string>
+    <string name="action_settings">Paramètres</string>
+   	<string name="menu_exportData">Exporter</string>
+ 	<string name="menu_importData">Importer</string>  
+	<string name="totalFeedS1">" Bébé a bu: "</string>
+	<string name="minsLeftS2">"min(Gauche:"</string>
+	<string name="minsRightS3">, Droit:</string>
+	<string name="endBracketS4">"), "</string>
+	<string name="mlsBottleS5"> ml (Biberon:</string>
+	<string name="expressS6">", Sein:</string>
+	<string name="endBracket2S7">); </string>
+	<string name="breastUsageS8">" Maman a donné:"</string>
+	<string name="leftS9">Gauche:</string>
+	<string name="minsS10"> min, </string>
+	<string name="rightS11">" Droit:"</string>
+	<string name="mins2S12">" min"</string>
+	
+	
+	  <string name="pumpLeftS13">"; dont Exprimé: Gauche ("</string>
+     <string name="plminsS14">"min, "</string>
+      <string name="plmlsS15">"ml), "</string>
+     <string name="prmlsS16">"Droit ("</string>
+       <string name="prmlsS17">"min,"</string>
+       <string name="prmlsS18">"ml)."</string>
+	
+	
+	
+	<string name="promptDataImport">"Données chargées!"</string>
+	<string name="promptDataExport">"Données exportées!"</string>
+	<string name="title_ExportData">"Exporter données vers "</string>
+	<string name="fileName">"BreastfeedingJournal"</string>
+	<string name="title_ImportData">"Selectionner le fichier à importer"</string>
+	<string name="title_buttonYes">"Oui"</string>
+	<string name="title_buttonNo">"Non"</string>
+	<string name="title_warning">"Attention"</string>
+	<string name="message_dataimport">"Voulez vous vraiment remplacer vos données?"</string>
+	<string name="message_failimport">"Erreur lors de l'import des données:"</string>
+	<string name="title_activity_display_xmldata">DisplayXMLDataActivity</string>
+    <string name="title_activity_main_activity3">MainActivity3</string>
+	<string name="database_file">BFData.xml</string>
+	<string name="market_name">market://details?id=com.dropbox.android</string>
+	<string name="targetPackage_name">com.dropbox.android</string> 	
+	<string name="UpdateFeed">Modifier Tétée</string>
+    <string name="UpdateNappy">Modifier Couche</string>
+    <string name="UpdatePump">Modifier Expression</string>
+    
+    <string name="title_activity_show_feeding_q">Récapitulatif par jour</string>
+    <string name="menu_showFeedQbyDay">Récapitulatif par jour</string>
+    <string name="menu_showFeedQbyHour">Récapitulatif par heure</string>
+    <string name="menu_showBreastU">Récapitulatif allaitement</string>
+    <string name="title_activity_show_breast_usage">Récapitulatif allaitement</string>
+    <string name="domainLabelDay">Par jour</string>
+    <string name="domainLabelHour">Par heure</string>
+    <string name="rangeLabel">Minutes/Ml</string>
+     <string name="rangeLabelB">Minutes</string>
+    <string name="chartTitleFeed">Les repas de bébé</string>
+    <string name="chartTitleFeedHour">Les repas de bébé</string>
+    <string name="chartTitleBB">Allaitement</string>
+    <string name="title_activity_show_feedingqbyhour">Récapitulatif par heure</string>
+	<string name="legendBBL">Sein gauche</string>
+	<string name="legendBBR">Sein droit</string>
+	<string name="legendBreastfeed">Allaitement</string>
+	<string name="legendBottlefeed">Biberon</string>
+	<string name="legendPumpfeed">Lait tiré</string>
+	
+	 <string name="title_activity_customer_event">CustomerEventActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="TitleAddCustomerEvent">Ajouter note</string>
+	<string name="EventTitle">Titre</string>
+	<string name="EventDesc">Description</string>
+	<string name="title_buttonCustomerEvent">Note</string>
+	<string name="UpdateCE">Modifier note</string>
+	
+	<string name="time_type__option1">12 heures</string>
+	<string name="time_type__option2">24 heures</string>
+	 <string name="userPreferences">Préférences</string>
+	 <string name="menu_userPreferences">Préférences</string>
+	 <string name="volumn_unit_milliliter">Millilitres</string>
+	<string name="volumn_unit_ounce">Onces</string>
+	 <string name="volumn_unit_preferences">Unité de volume</string>
+	<string name="time_type__preferences">Système horaire</string>
+	<string name="volumn_unit_preferencesSummary_Ounce">Onces</string>
+	<string name="volumn_unit_preferencesSummary_Milliliter">Millilitres</string>
+	<string name="volumn_unit_preferencesSummary_default">Millilitres</string>
+	<string name="time_type__preferencesSummary_24hours">24 heures</string>
+	<string name="time_type__preferencesSummary_12hours">12 heures</string>
+
+	<string name="time_type__preferencesSummary_default">24 heures</string>
+	  <string name="mlsBottleS5Ounce">" oz (Biberon:"</string>
+	  <string name="plmlsS15Ounce">"oz), "</string>
+	   <string name="prmlsS18Ounce">"oz)."</string>
+	
+    
+</resources>

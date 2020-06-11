@@ -1,0 +1,25 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="AppTheme" parent="android:Theme.Light">
+	       <!-- Fill the screen -->
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+
+        <!-- No backgrounds, titles or window float -->
+        <item name="android:windowBackground">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">false</item>      
+		<item name="android:textSize">40dip</item>
+        <!-- Just to prove it's working -->
+        <item name="android:background">#ff0000</item>
+        </style>
+        
+    <style name="BreastFeedingDialog" parent="@android:style/Theme.Dialog">
+      	<item name="android:windowBackground">@drawable/background</item>
+    
+    	<item name="android:textSize">12dip</item>
+    	<item name="android:windowNoTitle">true</item>
+    </style>
+    
+    
+</resources>

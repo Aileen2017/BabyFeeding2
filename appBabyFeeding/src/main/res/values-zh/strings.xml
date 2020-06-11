@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+     <string name="title_activity_main_activity">母乳喂养日志</string>
+    <string name="title_activity_breast_feeding">喂喂奶</string>
+  	<string name="app_name">母乳喂养日志</string>
+    <string name="title_activity_breast_pump">泵泵奶</string>
+    <string name="title_activity_baby_nappy">换尿布</string>
+    <string name="title_buttonEnter">确认</string>
+    <string name="title_buttonDelete">删除</string>
+    <string name="title_buttonCancel">取消</string>
+    <string name="title_buttonFeed">喂奶</string>
+    <string name="title_buttonNappy">尿布</string>
+    <string name="title_buttonPump">泵奶</string>
+    <string name="AddFeed">喂奶一次</string>
+    <string name="AddNappy">换尿布一次</string>
+    <string name="AddPump">泵奶一次</string>
+    <string name="StartTime">开始时间</string>
+    <string name="Wet">湿尿布</string>
+    <string name="Dirty">脏尿布</string>
+    <string name="NappyEvent"></string>
+    <string name="LeftBreast">左边</string>
+    <string name="RightBreast">右边</string>
+    <string name="Minutes">分钟</string>
+    <string name="Milliliters">毫升</string>
+    <string name="BottleFeed">配方奶</string>
+    <string name="ExpressFeed">泵出奶</string>
+    <string name="InputTime">输入时间</string>
+    <string name="Quantity">数量</string>
+    <string name="title_activity_export_db">ExportDBActivity</string>
+    <string name="menu_exportData">数据备份</string>
+ 	<string name="menu_importData">数据恢复</string>
+  	<string name="action_settings">Settings</string>
+  
+  	<string name="totalFeedS1">" 今天一共喂奶: "</string>
+	<string name="minsLeftS2">"分钟 （左边:"</string>
+	<string name="minsRightS3">, 右边:</string>
+	<string name="endBracketS4">"), "</string>
+	<string name="mlsBottleS5"> 毫升 (配方奶:</string>
+	<string name="expressS6">", 泵出奶:</string>
+	<string name="endBracket2S7">); </string>
+	<string name="breastUsageS8">" 用奶时间:"</string>
+	<string name="leftS9">左边:</string>
+	<string name="minsS10"> 分钟, </string>
+	<string name="rightS11">" 右边:"</string>
+	<string name="mins2S12">" 分钟"</string>
+	
+	  <string name="pumpLeftS13">"; 泵奶: 左边 ("</string>
+     <string name="plminsS14">"分钟, "</string>
+      <string name="plmlsS15">"毫升), "</string>
+     <string name="prmlsS16">"右边 ("</string>
+       <string name="prmlsS17">"分钟,"</string>
+       <string name="prmlsS18">"毫升)."</string>
+	
+	
+	
+	<string name="promptDataImport">"数据已恢复!"</string>
+	<string name="promptDataExport">"数据已备份!"</string>
+	<string name="title_ExportData">"数据备份到文件 "</string>
+	<string name="fileName">"BreastfeedingJournal"</string>
+	<string name="title_ImportData">"选择导入文件"</string>
+	<string name="title_buttonYes">"是的"</string>
+	<string name="title_buttonNo">"不是"</string>
+	<string name="title_warning">"提示"</string>
+	<string name="message_dataimport">"你确实想要覆盖现有数据吗?"</string>
+	<string name="message_failimport">"导入数据失败:"</string>
+	 <string name="title_activity_display_xmldata">DisplayXMLDataActivity</string>
+    <string name="title_activity_main_activity3">MainActivity3</string>
+	<string name="database_file">BFData.xml</string>
+	<string name="market_name">market://details?id=com.dropbox.android</string>
+	<string name="targetPackage_name">com.dropbox.android</string>
+	<string name="UpdateFeed"> 编辑喂喂奶活动</string>
+    <string name="UpdateNappy">编辑换尿布活动</string>
+    <string name="UpdatePump">编辑泵泵奶活动</string>
+    
+     <string name="title_activity_show_feeding_q">每日喂养图</string>
+    <string name="menu_showFeedQbyDay">每日喂养图</string>
+     <string name="menu_showFeedQbyHour">每时喂养图</string>
+    <string name="menu_showBreastU">两乳平衡图</string>
+    <string name="title_activity_show_breast_usage">产乳平衡图</string>
+    <string name="domainLabelDay">每天</string>
+    <string name="domainLabelHour">每时</string>
+    <string name="rangeLabel">分钟/毫升</string>
+     <string name="rangeLabelB">分钟</string>
+    <string name="chartTitleFeed">宝宝吃好了吗?</string>
+    <string name="chartTitleFeedHour">宝宝吃好了吗?</string>
+     <string name="chartTitleBB">产乳平衡图</string>
+    <string name="title_activity_show_feedingqbyhour">每时喂养图</string>
+	<string name="legendBBL">左乳</string>
+	<string name="legendBBR">右乳</string>
+	<string name="legendBreastfeed">母乳</string>
+	<string name="legendBottlefeed">配方奶</string>
+	<string name="legendPumpfeed">泵奶</string>
+	
+	<string name="title_activity_customer_event">其它活动</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="TitleAddCustomerEvent">还有其它活动</string>
+	<string name="EventTitle">标题</string>
+	<string name="EventDesc">内容</string>
+	<string name="title_buttonCustomerEvent">其它活动</string>
+	<string name="UpdateCE">更新其它活动</string>
+	
+	
+	<string name="time_type__option1">12 小时制</string>
+	<string name="time_type__option2">24 小时制</string>
+	 <string name="userPreferences">用户设置</string>
+	 <string name="menu_userPreferences">用户设置</string>
+	 <string name="volumn_unit_milliliter">毫升</string>
+	<string name="volumn_unit_ounce">盎司</string>
+	 <string name="volumn_unit_preferences">容器单位</string>
+	<string name="time_type__preferences">时间制</string>
+	<string name="volumn_unit_preferencesSummary_Ounce">盎司</string>
+	<string name="volumn_unit_preferencesSummary_Milliliter">毫升</string>
+	<string name="volumn_unit_preferencesSummary_default">毫升</string>
+	<string name="time_type__preferencesSummary_24hours">24 小时制</string>
+	<string name="time_type__preferencesSummary_12hours">12 小时制</string>
+
+	<string name="time_type__preferencesSummary_default">24 小时制</string>
+	  <string name="mlsBottleS5Ounce">"盎司(配方奶:"</string>
+	  <string name="plmlsS15Ounce">"盎司), "</string>
+	   <string name="prmlsS18Ounce">"盎司)."</string>
+    
+</resources>

@@ -1,0 +1,123 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity2" >
+
+    <LinearLayout 
+	    android:orientation="horizontal"
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     android:layout_alignParentTop="true"
+     
+     android:padding="0dp"
+     android:paddingRight="0dip"
+     android:id="@+id/layout3"
+     android:weightSum="4"
+     android:background="#E391E2"
+     >
+
+        <Button android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:text="@string/title_buttonFeed"
+            
+            android:id="@+id/feedBtn"
+            android:fadingEdge="horizontal"
+            android:layout_weight="0.9"
+           	android:layout_marginLeft="-3dip"
+            android:layout_marginRight="-9dip">
+        </Button>
+
+            <Button android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:text="@string/title_buttonNappy"
+            
+            android:id="@+id/nappyBtn"
+            android:fadingEdge="horizontal"
+            android:layout_weight="0.9"
+           
+            android:layout_marginRight="-9dip">
+            
+        	</Button>
+       
+            <Button android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:text="@string/title_buttonPump"
+            
+            android:layout_marginRight="-3dip"
+            android:id="@+id/breastPumpBtn"
+            android:fadingEdge="horizontal"
+            android:layout_weight="1.3">
+        	</Button>
+        	
+             <Button android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:text="@string/title_buttonCustomerEvent"
+            
+            
+            android:id="@+id/CustomerEventBtn"
+            android:fadingEdge="horizontal"
+            android:layout_weight="0.9"
+             android:layout_marginLeft="-5dip">
+        	</Button>
+ 
+		</LinearLayout>
+    
+    
+    	<LinearLayout 
+	    android:id="@+id/layout2"
+     	android:layout_width="fill_parent"
+     	android:layout_height="wrap_content"
+     	android:layout_below="@id/layout3"
+ 		android:background="#E0D4A2"
+ 		android:paddingTop="5dp"
+ 		android:paddingBottom="5dp"
+   		>
+  
+  		<TextView
+        android:id="@+id/txtViewSummary"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        
+        android:textSize="12dp" android:textStyle="italic"
+        android:text="Summary" 
+       android:gravity="left"
+        />
+  		</LinearLayout>
+    	
+ 	<LinearLayout 
+	    android:orientation="horizontal"
+     	android:layout_width="fill_parent"
+     	android:layout_height="wrap_content"
+     	android:layout_below="@id/layout2"
+ 		android:id="@+id/layout1"
+   		>
+    <android.support.v4.view.ViewPager
+    
+    android:id="@+id/pager"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+   
+    <android.support.v4.view.PagerTitleStrip
+        android:id="@+id/pager_title_strip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:background="#33b5e5"
+        android:textColor="#fff"
+        
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp" />
+
+	</android.support.v4.view.ViewPager>
+	</LinearLayout>
+    
+    
+	 
+
+</RelativeLayout>

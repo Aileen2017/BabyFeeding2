@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+<ScrollView
+    android:layout_width="match_parent"
+     android:layout_height="wrap_content" 
+    android:id="@+id/sv1"
+     android:fillViewport="true" >
+	
+	<LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" 
+    android:orientation="vertical" >
+
+	<LinearLayout 
+	    android:id="@+id/llTitle"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical" 
+	   >
+	<TextView
+        android:id="@+id/txtViewBFTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        
+        android:textSize="20dp" android:textStyle="bold"
+        android:text="@string/AddFeed" 
+        android:layout_gravity="left"
+        android:paddingTop="15dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="15dp"
+        android:paddingLeft="10dp" />
+       
+	<View
+	    android:layout_width="fill_parent"
+	    android:layout_height="1dp"
+	    android:background="@android:color/darker_gray"/>
+	</LinearLayout> 
+
+
+
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    android:weightSum="3"
+	    android:layout_below="@id/llTitle" 
+	    android:id="@+id/llStartTime">
+  
+ 		<TextView
+        android:id="@+id/txtViewST"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:textSize="16dp" android:textStyle="bold"
+        android:text="@string/StartTime" 
+        android:layout_weight="1"/>
+
+ 		<EditText
+ 	    android:id="@+id/txtTimePicker"
+ 	    android:layout_width="0dp"
+ 	    android:layout_height="wrap_content"
+        android:hint="@string/InputTime"
+ 	    android:layout_weight="2"
+ 	    android:inputType="numberDecimal"
+ 	    />
+	
+	</LinearLayout>
+
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    android:weightSum="3" 
+	    android:layout_below="@id/llStartTime"
+	    android:id="@+id/llLDuration">
+		
+       
+		<TextView
+	        android:id="@+id/txtViewLBreast"
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:textSize="16dp" android:textStyle="bold"
+	        android:paddingLeft="10dp"
+	        android:text="@string/LeftBreast" 
+	        android:layout_weight="1"/>
+	 	<EditText
+	          android:id="@+id/inputLDuration"
+	          android:layout_width="0dp"
+	          android:layout_height="wrap_content"
+	          android:hint="@string/Minutes" 
+	          
+	          android:layout_weight="2"
+	          android:inputType="number"/>
+
+ 		
+	
+	</LinearLayout>
+	
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    android:weightSum="3" 
+	    android:layout_below="@id/llLDuration"
+	    android:id="@+id/llRDuration">
+	
+   
+		<TextView
+		   	android:id="@+id/txtViewRBreast"
+		    android:layout_width="0dp"
+		    android:layout_height="wrap_content"
+		    android:textSize="16dp" 
+		    android:textStyle="bold"
+	        android:text="@string/RightBreast" 
+	        android:paddingLeft="10dp"
+	        android:layout_weight="1"/>
+	        
+	 	<EditText
+	          android:id="@+id/inputRDuration"
+	          android:layout_width="0dp"
+	          android:layout_height="wrap_content"
+	          android:hint="@string/Minutes" 
+	          android:layout_weight="2"
+	          android:inputType="number"/>
+
+	 		
+ 	</LinearLayout>
+	
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    android:weightSum="3" 
+	    android:layout_below="@id/llRDuration"
+	    android:id="@+id/llBottleFeed">
+	
+   
+		<TextView
+		   	android:id="@+id/txtViewBottleFeed"
+		    android:layout_width="0dp"
+		    android:layout_height="wrap_content"
+		    android:textSize="16dp" android:textStyle="bold"
+	        android:text="@string/BottleFeed" 
+	        android:paddingLeft="10dp"
+	        android:layout_weight="1"/>
+	        
+	 	<EditText
+	          android:id="@+id/inputBotQuantity"
+	          android:layout_width="0dp"
+	          android:layout_height="wrap_content"
+	          android:hint="@string/Milliliters" 
+	          android:layout_weight="2"
+	          android:inputType="numberDecimal"/>
+
+	 			
+ 	</LinearLayout>
+	
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    android:weightSum="3" 
+	    android:layout_below="@id/llBottleFeed"
+	    android:id="@+id/llExpressFeed">
+	
+   
+		<TextView
+		   	android:id="@+id/txtViewPumpFeed"
+		    android:layout_width="0dp"
+		    android:layout_height="wrap_content"
+		    android:textSize="16dp" android:textStyle="bold"
+	        android:text="@string/ExpressFeed" 
+	        android:paddingLeft="10dp"
+	        android:layout_weight="1"/>
+	        
+	 	<EditText
+	          android:id="@+id/inputEFQuantity"
+	          android:layout_width="0dp"
+	          android:layout_height="wrap_content"
+	          android:hint="@string/Milliliters"
+	          android:layout_weight="2"
+	          android:inputType="numberDecimal"/>
+
+ 		</LinearLayout>
+	
+	
+	<LinearLayout 
+	    android:id="@+id/ll5"
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+   		android:orientation="horizontal"
+   		android:layout_below="@id/llExpressFeed">
+	    
+
+	    <Button
+	        android:id="@+id/btnSave"
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:text="@string/title_buttonEnter" 
+	        android:layout_weight="1"/>
+	    
+	    <Button
+	        android:id="@+id/btnBFDelete"
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:text="@string/title_buttonDelete" 
+	        android:layout_weight="1"/>
+	</LinearLayout>
+	</LinearLayout>
+</ScrollView>
+</RelativeLayout>
