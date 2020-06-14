@@ -2,6 +2,7 @@ package com.projects.babyfeeding2;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
@@ -9,6 +10,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Locale;
 import java.util.Vector;
+import java.util.concurrent.TimeUnit;
 
 import com.projects.babyfeeding2.R;
 
@@ -89,7 +91,24 @@ public class BFEventsListFragment2 extends Fragment {
 	        ViewGroup rootView = (ViewGroup) inflater
 	                .inflate(R.layout.bfeventslist_fragment2, container, false);
 	        ListView listView = (ListView) rootView.findViewById(R.id.list1);
-	        if(mPageNumber==251)
+	        Calendar today = Calendar.getInstance();
+			today.set(Calendar.MILLISECOND,0);
+			today.set(Calendar.SECOND,0);
+			today.set(Calendar.MINUTE,0);
+			today.set(Calendar.HOUR,0);
+			Calendar pagerDay = Calendar.getInstance();
+			pagerDay.set(Calendar.DAY_OF_MONTH, day);
+			pagerDay.set(Calendar.MONTH, month);
+			pagerDay.set(Calendar.YEAR, year);
+			pagerDay.set(Calendar.MILLISECOND,0);
+			pagerDay.set(Calendar.SECOND,0);
+			pagerDay.set(Calendar.MINUTE,0);
+			pagerDay.set(Calendar.HOUR,0);
+			int increment = 251 - mPageNumber;
+			pagerDay.add(Calendar.DATE, increment);
+			long laggedNumber = TimeUnit.DAYS.convert((today.getTime().getTime() - pagerDay.getTime().getTime()),  TimeUnit.MILLISECONDS);
+
+	        if(mPageNumber==(251+(int)laggedNumber))
 	        {	listView.setBackgroundColor(R.color.red);
 	        	listView.getBackground().setAlpha(51);
 	        }
