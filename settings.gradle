@@ -1,2 +1,2 @@
 include ':appBabyFeeding'
-rootProject.name = "BabyFeeding2020"
+rootProject.name = "BabyFeeding2"
