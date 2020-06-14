@@ -47,7 +47,7 @@ public class BFEventsListFragment2 extends Fragment {
 		public static Fragment create(int pageNumber,SharedPreferences sp,Locale locale)
 		{
 	        BFEventsListFragment2 fragment = new BFEventsListFragment2();
-	        
+
 	        Bundle args = new Bundle();
 	        args.putInt("ARG_PAGE", pageNumber);
 	        int increment = pageNumber-251;

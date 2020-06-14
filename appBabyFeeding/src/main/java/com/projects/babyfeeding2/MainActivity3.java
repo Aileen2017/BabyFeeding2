@@ -50,10 +50,6 @@ public class MainActivity3 extends FragmentActivity {
 
 	private static final int NUM_PAGES =500;
 	private PagerTitleStrip strip;
-	static final int LIST_BFEVENTS = 1;
-	private  int testi=0;
-	private Menu menu = null;
-	int year, day, month;
 	int refPosition=251;
 	final Calendar refDate = Calendar.getInstance();
 	String errorMessage=null;
@@ -615,10 +611,6 @@ public class MainActivity3 extends FragmentActivity {
 			Calendar calendar=(Calendar)refDate.clone();
 			
 			int increment=position-251;
-		//	if(position-currentPosition==-1)
-		//		return "previous";
-		//	if(position-currentPosition==1)
-		//		return "next";
 			calendar.add(Calendar.DATE, increment);
 
 			SimpleDateFormat date_format = new SimpleDateFormat("yyyy-MM-dd");
