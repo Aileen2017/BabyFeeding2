@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config
-        androidplot.linePaint.strokeWidth="100dp"
-        linePaint.color="@color/feedDBottle"
-        vertexPaint.color="@color/feedDBottle"
+        androidplot.linePaint.strokeWidth="5dp"
+        linePaint.color="#E0D4A2"
+        vertexPaint.color="#E0D4A2"
         fillPaint.color="#00000000"
-        pointLabelFormatter.textPaint.color="@color/black"/>
+        pointLabelFormatter.textPaint.color="#000000"/>
