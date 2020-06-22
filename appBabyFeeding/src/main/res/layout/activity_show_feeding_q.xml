@@ -19,8 +19,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
-        ap:rangeTitle="Volume"
-        ap:domainTitle="Time"
+        ap:rangeTitle="@string/rangeLabel"
+        ap:domainTitle="@string/domainLabelDay"
         ap:lineLabels="left|bottom"
         ap:lineLabelRotationBottom="-45"
 

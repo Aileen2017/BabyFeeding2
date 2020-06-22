@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config
-        androidplot.linePaint.strokeWidth="5dp"
+        linePaint.strokeWidth="5dp"
         linePaint.color="#E0D4A2"
         vertexPaint.color="#E0D4A2"
         fillPaint.color="#00000000"

@@ -20,7 +20,9 @@ import com.androidplot.ui.SizeMetric;
 import com.androidplot.ui.SizeMode;
 import com.androidplot.ui.VerticalPositioning;
 import com.androidplot.xy.BoundaryMode;
+
 import com.androidplot.xy.LineAndPointFormatter;
+import com.androidplot.xy.PanZoom;
 import com.androidplot.xy.PointLabelFormatter;
 import com.androidplot.xy.SimpleXYSeries;
 import com.androidplot.xy.StepMode;
@@ -65,25 +67,16 @@ public class ShowFeedingQActivity extends Activity implements OnTouchListener {
 		plot=(XYPlot)findViewById(R.id.plot4);
 		//	plot.setMarkupEnabled(true);
 
-		Calendar c=Calendar.getInstance();
-		long ts1=c.getTimeInMillis();
-
 		localiseRangeLabel();
 		configureDomainAndRangeTitle();
 		configureGraph();
 		configureLegend();
 		configureRangeDomainStepValues();
 		createAndApplySeries1();
-
+		createAndApplySeries2();
+		createAndApplySeries3();
 		plot.setOnTouchListener(this);
-
-
-/*	        plot.getGraph().setDrawMarkersEnabled(true);
-			plot.getGraph().setMarginTop(50);
-			plot.getLegend().setMarginBottom(30);
-			plot.getRangeTitle().setMarginBottom(0);
-			plot.getTitle().setMarginTop(10);*/
-
+		PanZoom.attach(plot);
 
 	}
 
@@ -113,7 +106,6 @@ public class ShowFeedingQActivity extends Activity implements OnTouchListener {
 				SimpleXYSeries.ArrayFormat.XY_VALS_INTERLEAVED , // Y_VALS_ONLY means use the element index as the x value
 				bof);
 		plot.addSeries(series2, series2Format);
-
 
 	}
 
