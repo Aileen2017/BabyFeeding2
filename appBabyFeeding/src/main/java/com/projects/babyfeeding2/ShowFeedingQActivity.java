@@ -7,6 +7,9 @@ import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Locale;
 import java.util.Vector;
 
@@ -54,6 +57,7 @@ public class ShowFeedingQActivity extends Activity implements OnTouchListener {
 	long maxX;
 	long wminX;
 	long wmaxX;
+	int maxRangeValue;
 	Number[] series1Numbers={0,0};
 	Number[] series2Numbers={0,0};
 	Number[] series3Numbers={0,0};
@@ -76,8 +80,11 @@ public class ShowFeedingQActivity extends Activity implements OnTouchListener {
 		createAndApplySeries2();
 		createAndApplySeries3();
 		plot.setOnTouchListener(this);
-		PanZoom.attach(plot);
 
+		PanZoom.attach(plot, PanZoom.Pan.HORIZONTAL, PanZoom.Zoom.STRETCH_HORIZONTAL);
+		//plot.getOuterLimits().set(0, 1000000, 0, 1000);
+
+		configureRangeMaxMin();
 	}
 
 
@@ -150,23 +157,13 @@ public class ShowFeedingQActivity extends Activity implements OnTouchListener {
 
 	void configureRangeMaxMin(){
 		plot.calculateMinMaxVals();
-		 /*  minX = wminX = plot.getCalculatedMinX().longValue();
-	       maxX = wmaxX = plot.getCalculatedMaxX().longValue();
-	       long diff=maxX-minX;
-	       long fortnight = 24L*3600L*1000L*14L;
+		Calendar lowerBoundary = Calendar.getInstance();
+		lowerBoundary.add(Calendar.DAY_OF_MONTH, -7);
+		plot.setDomainBoundaries(lowerBoundary.getTime().getTime(), Calendar.getInstance().getTime().getTime(), BoundaryMode.FIXED);
 
-	       if(diff>fortnight)
-	       {
-	    	   wmaxX=maxX;
-	    	   wminX=maxX-fortnight;
-	       }*/
+		plot.setRangeLowerBoundary(0, BoundaryMode.FIXED);
+		plot.setRangeUpperBoundary(maxRangeValue, BoundaryMode.FIXED);
 
-		// plot.setRangeValueFormat(Formatting.getDeci0());
-		//plot.setRangeBottomMin(0);
-		//plot.setRangeBottomMax(0);
-		//plot.setRangeTopMin(plot.getCalculatedMaxY());
-		//plot.setRangeTopMax(plot.getCalculatedMaxY());
-		//plot.setDomainBoundaries(wminX, wmaxX, BoundaryMode.FIXED);
 	}
 
 
@@ -242,7 +239,8 @@ public class ShowFeedingQActivity extends Activity implements OnTouchListener {
 
 	public void getFeedsVolumebyDay()
 	{
-
+		int maxDuration = 0;
+		double maxBf = 0, maxEf = 0;
 		Vector<XYData> dLine=new Vector<XYData>();
 		Vector<XYDataDouble> vELine=new Vector<XYDataDouble>();
 		Vector<XYDataDouble> vBLine=new Vector<XYDataDouble>();
@@ -340,6 +338,14 @@ public class ShowFeedingQActivity extends Activity implements OnTouchListener {
 						vELine.add(tempDataE);
 						vBLine.add(tempDataB);
 
+						if(totalDuration > maxDuration)
+							maxDuration = totalDuration;
+						if(totalEQ > maxEf)
+							maxEf = totalEQ;
+						if(totalBQ > maxBf)
+							maxBf = totalBQ;
+
+
 
 						//Log.i("lDuration", Integer.toString(lDuration));
 					}
@@ -349,13 +355,57 @@ public class ShowFeedingQActivity extends Activity implements OnTouchListener {
 				}
 
 
-
-
 				int lc=dLine.size();
 
 				int bc=vBLine.size();
 
 				int ec=vELine.size();
+				maxDuration = (Collections.max(dLine, new Comparator<XYData>() {
+
+
+					@Override
+					public int compare(XYData o1, XYData o2) {
+						if(o1.quanY > o2.quanY)
+							return 1;
+						else if(o1.quanY < o2.quanY)
+							return -1;
+						else
+							return 0;
+					}
+				})).quanY;
+
+				maxBf = (Collections.max(vBLine, new Comparator<XYDataDouble>() {
+
+
+					@Override
+					public int compare(XYDataDouble o1, XYDataDouble o2) {
+						if(o1.quanYD > o2.quanYD)
+							return 1;
+						else if(o1.quanYD < o2.quanYD)
+							return -1;
+						else
+							return 0;
+					}
+				})).quanYD;
+
+				maxEf = (Collections.max(vBLine, new Comparator<XYDataDouble>() {
+
+
+					@Override
+					public int compare(XYDataDouble o1, XYDataDouble o2) {
+						if(o1.quanYD > o2.quanYD)
+							return 1;
+						else if(o1.quanYD < o2.quanYD)
+							return -1;
+						else
+							return 0;
+					}
+				})).quanYD;
+
+				Integer[] maxValues = {maxDuration, (int)maxBf, (int)maxEf};
+				List<Integer> list = Arrays.asList(maxValues);
+				maxRangeValue = Collections.max(Arrays.asList(maxValues));
+
 
 				series1Numbers=toNumbers(dLine);
 				series2Numbers=toNumbersDouble(vBLine);
@@ -402,6 +452,7 @@ public class ShowFeedingQActivity extends Activity implements OnTouchListener {
 			tsX=tsx;
 			quanY=quany;
 		}
+
 	}
 
 	public class XYDataDouble
