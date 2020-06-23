@@ -4,6 +4,9 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Locale;
 import java.util.Vector;
 
@@ -43,7 +46,7 @@ public class ShowBreastUsage extends Activity implements OnTouchListener, OnLayo
 	private MyBarFormatter formatter2;
 	Number[] series1Numbers={0,0} ;
 	Number[] series2Numbers={0,0};
-
+	int maxRangeValue;
 	long minX;
 	long maxX;
 	long wminX;
@@ -76,6 +79,7 @@ public class ShowBreastUsage extends Activity implements OnTouchListener, OnLayo
 		getBUbyDay();
 		plot = (XYPlot) findViewById(R.id.BUplot);
 
+
 		plot.setOnTouchListener(this);
 		plot.addOnLayoutChangeListener(this);
 		localiseRangeLabel();
@@ -85,7 +89,13 @@ public class ShowBreastUsage extends Activity implements OnTouchListener, OnLayo
 		configureRangeDomainStepValues();
 		createAndApplySeries1();
 		createAndApplySeries2();
-		PanZoom.attach(plot);
+		configureDomainRangeMaxMin();
+		ShowBreastUsage.MyBarRenderer renderer = ((ShowBreastUsage.MyBarRenderer)plot.getRenderer(ShowBreastUsage.MyBarRenderer.class));
+		renderer.setBarOrientation(ShowFeedingqbyhourActivity.MyBarRenderer.BarOrientation.SIDE_BY_SIDE);
+
+		renderer.setBarGroupWidth(BarRenderer.BarGroupWidthMode.FIXED_WIDTH, 60);
+
+		PanZoom.attach(plot, PanZoom.Pan.HORIZONTAL, PanZoom.Zoom.STRETCH_HORIZONTAL);
 
 	}
 
@@ -147,19 +157,13 @@ public class ShowBreastUsage extends Activity implements OnTouchListener, OnLayo
 	}
 
 
-	void configureRangeMaxMin(){
+	void configureDomainRangeMaxMin(){
 		plot.calculateMinMaxVals();
-
-	    /*   minX = wminX = plot.getCalculatedMinX().longValue();
-	       maxX = wmaxX = plot.getCalculatedMaxX().longValue();
-	       long diff=maxX-minX;
-	       long fortnight = 24L*3600L*1000L*14L;
-	       if(diff>fortnight)
-	       {
-	    	   wmaxX=maxX;
-	    	   wminX=maxX-fortnight;
-	       }	*/
-		plot.setDomainBoundaries(wminX, wmaxX, BoundaryMode.FIXED);
+		Calendar lowerBoundary = Calendar.getInstance();
+		lowerBoundary.add(Calendar.DAY_OF_MONTH, -7);
+		plot.setDomainBoundaries(lowerBoundary.getTime().getTime(), Calendar.getInstance().getTime().getTime(), BoundaryMode.FIXED);
+		plot.setRangeLowerBoundary(0, BoundaryMode.FIXED);
+		plot.setRangeUpperBoundary(maxRangeValue, BoundaryMode.FIXED);
 	}
 
 
@@ -262,7 +266,6 @@ public class ShowBreastUsage extends Activity implements OnTouchListener, OnLayo
 		Vector<XYData>  vRight=new Vector<XYData>();
 
 
-
 		BFDBOpenHelper db=new BFDBOpenHelper(getApplicationContext());
 		SQLiteDatabase dbr=db.getReadableDatabase();
 
@@ -297,6 +300,7 @@ public class ShowBreastUsage extends Activity implements OnTouchListener, OnLayo
 				maxfdaysTS=Timestamp.valueOf(maxfdays);
 				//Log.i("MaxDay", c2.getString(c2.getColumnIndex("maxDay")));
 			}
+
 		}
 
 		String sqlIfpData= "SELECT COUNT(*) FROM "+ FeedingEventsContract.BreastPumpEvents.table_name;
@@ -433,6 +437,39 @@ public class ShowBreastUsage extends Activity implements OnTouchListener, OnLayo
 			int lc=vLeft.size();
 
 			int rc=vRight.size();
+
+			int maxLd = 0, maxRd = 0;
+			maxLd = (Collections.max(vLeft, new Comparator<ShowBreastUsage.XYData>() {
+
+
+				@Override
+				public int compare(ShowBreastUsage.XYData o1, ShowBreastUsage.XYData o2) {
+					if(o1.quanY > o2.quanY)
+						return 1;
+					else if(o1.quanY < o2.quanY)
+						return -1;
+					else
+						return 0;
+				}
+			})).quanY;
+
+			maxRd = (Collections.max(vRight, new Comparator<ShowBreastUsage.XYData>() {
+
+
+				@Override
+				public int compare(ShowBreastUsage.XYData o1, ShowBreastUsage.XYData o2) {
+					if(o1.quanY > o2.quanY)
+						return 1;
+					else if(o1.quanY < o2.quanY)
+						return -1;
+					else
+						return 0;
+				}
+			})).quanY;
+
+			Integer[] maxValues = {maxLd, maxRd};
+			List<Integer> list = Arrays.asList(maxValues);
+			maxRangeValue = Collections.max(Arrays.asList(maxValues));
 
 			series1Numbers=toNumbers(vLeft);
 			series2Numbers=toNumbers(vRight);

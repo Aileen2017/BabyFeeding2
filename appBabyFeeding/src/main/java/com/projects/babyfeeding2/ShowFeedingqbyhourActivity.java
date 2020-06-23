@@ -4,7 +4,10 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 import java.util.Vector;
 import java.text.FieldPosition;
@@ -26,7 +29,7 @@ import com.androidplot.xy.XYPlot;
 import com.androidplot.xy.XYSeries;
 
 
-
+import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.app.Activity;
@@ -49,6 +52,8 @@ public class ShowFeedingqbyhourActivity extends Activity implements OnTouchListe
 	long maxX;
 	long wminX;
 	long wmaxX;
+	int maxRangeValue;
+	Calendar maxDomainValue;
 	Number[] seriesdNumbers={0,0};
 	Number[] seriesbNumbers={0,0};
 	Number[] serieseNumbers={0,0};
@@ -60,9 +65,6 @@ public class ShowFeedingqbyhourActivity extends Activity implements OnTouchListe
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_show_feedingqbyhour);
-
-
-
 		getFeedsVolumebyHour();
 		plot=(XYPlot)findViewById(R.id.plot5);
 
@@ -74,57 +76,16 @@ public class ShowFeedingqbyhourActivity extends Activity implements OnTouchListe
 		createAndApplySeries1();
 		createAndApplySeries2();
 		createAndApplySeries3();
-		PanZoom.attach(plot);
 
-		plot.calculateMinMaxVals();
-		//minX = wminX = plot.getCalculatedMinX().longValue();
-		//maxX = wmaxX = plot.getCalculatedMaxX().longValue();
-	       
-	    /*
-	       Timestamp tempMax;
-	       Timestamp tempMin;
-	       if((maxX!=0)&&(minX!=0))
-	       {
-		       Timestamp ts=new Timestamp(maxX);
-		       Calendar cal=Calendar.getInstance();
-		       cal.setTimeInMillis(ts.getTime());
-		       Timestamp[] tsa= BFUtilities.getDate(cal);
-		       long maxXEnd = tsa[1].getTime();
-		       
-		       
-		       Timestamp tsb=new Timestamp(minX);
-		       Calendar calb=Calendar.getInstance();
-		       calb.setTimeInMillis(tsb.getTime());
-		       Timestamp[] tsab= BFUtilities.getDate(calb);
-		       long minXBegin = tsab[0].getTime();
-		       
-		       long hday = 12L*3600L*1000L-1L;
-		       maxX=maxXEnd;
-		       minX=minXBegin;
-		       wmaxX = maxX;
-		       wminX = wmaxX - hday;
-		        tempMax=new Timestamp(wmaxX);
-		       try{
-		       Timestamp tempMin2 = new Timestamp(minX);
-		    	   tempMin=new Timestamp(wminX);
-		       }
-		       catch(Exception e)
-		       {
-		    	  // Log.i("tempMinError:", e.toString());
-		       }
-		       int i=0;
-		       
-	       }*/
+		MyBarRenderer renderer = ((MyBarRenderer)plot.getRenderer(MyBarRenderer.class));
+		renderer.setBarOrientation(MyBarRenderer.BarOrientation.SIDE_BY_SIDE);
 
+		renderer.setBarGroupWidth(BarRenderer.BarGroupWidthMode.FIXED_WIDTH, 60);
 
-		//plot.setOnTouchListener(this);
+		PanZoom.attach(plot, PanZoom.Pan.HORIZONTAL, PanZoom.Zoom.STRETCH_HORIZONTAL);
 
-		//plot.setRangeTopMin(plot.getCalculatedMaxY());
-		// plot.setRangeTopMax(plot.getCalculatedMaxY());
-
-
-		// plot.setDomainBoundaries(wminX, wmaxX, BoundaryMode.FIXED);
-
+		configureDomainRangeMaxMin();
+		plot.setOnTouchListener(this);
 		//plot.addOnLayoutChangeListener(this);
 	}
 
@@ -187,35 +148,28 @@ public class ShowFeedingqbyhourActivity extends Activity implements OnTouchListe
 		plot.getGraph().getLineLabelStyle(XYGraphWidget.Edge.LEFT).getPaint().setTextSize(30);
 
 
-		plot.setLinesPerRangeLabel(5);
-		plot.setLinesPerDomainLabel(2);
+		//plot.setLinesPerRangeLabel(5);
+		//plot.setLinesPerDomainLabel(2);
 
-		plot.setRangeUpperBoundary(0, BoundaryMode.FIXED);
-		plot.setRangeLowerBoundary(0, BoundaryMode.FIXED);
+		//plot.setRangeUpperBoundary(0, BoundaryMode.FIXED);
+		//plot.setRangeLowerBoundary(0, BoundaryMode.FIXED);
 
 	}
 
 
-	void configureRangeMaxMin(){
+
+	void configureDomainRangeMaxMin(){
 		plot.calculateMinMaxVals();
-		 /*  minX = wminX = plot.getCalculatedMinX().longValue();
-	       maxX = wmaxX = plot.getCalculatedMaxX().longValue();
-	       long diff=maxX-minX;
-	       long fortnight = 24L*3600L*1000L*14L;
+		Calendar lowerBoundary = Calendar.getInstance();
+		lowerBoundary.add(Calendar.DAY_OF_MONTH, -1);
+		Calendar lowerDomainBoudary = (Calendar)maxDomainValue.clone();
+		lowerDomainBoudary.add(Calendar.HOUR, -12);
+		plot.setDomainBoundaries(lowerDomainBoudary.getTime().getTime(), maxDomainValue.getTime().getTime(), BoundaryMode.FIXED);
+		plot.setRangeLowerBoundary(0, BoundaryMode.FIXED);
+		plot.setRangeUpperBoundary(maxRangeValue, BoundaryMode.FIXED);
 
-	       if(diff>fortnight)
-	       {
-	    	   wmaxX=maxX;
-	    	   wminX=maxX-fortnight;
-	       }*/
-
-		// plot.setRangeValueFormat(Formatting.getDeci0());
-		//plot.setRangeBottomMin(0);
-		//plot.setRangeBottomMax(0);
-		//plot.setRangeTopMin(plot.getCalculatedMaxY());
-		//plot.setRangeTopMax(plot.getCalculatedMaxY());
-		//plot.setDomainBoundaries(wminX, wmaxX, BoundaryMode.FIXED);
 	}
+
 
 
 	void configureLegend() {
@@ -237,11 +191,6 @@ public class ShowFeedingqbyhourActivity extends Activity implements OnTouchListe
 		plot.getGraph().getRangeGridLinePaint().setColor(0xffb6e9b5);
 		plot.getGraph().getGridBackgroundPaint().setColor(0xFFFFFF);
 
-		MyBarRenderer renderer = ((MyBarRenderer)plot.getRenderer(MyBarRenderer.class));
-		// renderer. setBarRenderStyle(BarRenderer.BarRenderStyle.SIDE_BY_SIDE);
-
-		//renderer.setBarWidthStyle(BarRenderer.BarWidthStyle.FIXED_WIDTH);
-	//	renderer.setBarGroupWidth(BarRenderer.BarGroupWidthMode.FIXED_WIDTH, 10);
 	}
 
 	void configureGraph(){
@@ -249,7 +198,6 @@ public class ShowFeedingqbyhourActivity extends Activity implements OnTouchListe
 		plot.getGraph().setMarginBottom(100);
 		plot.getGraph().setMarginLeft(100);
 		plot.getGraph().setMarginRight(50);
-
 
 	}
 
@@ -301,7 +249,8 @@ public class ShowFeedingqbyhourActivity extends Activity implements OnTouchListe
 
 	public void getFeedsVolumebyHour()
 	{
-
+		int maxDuration = 0;
+		double maxBf = 0, maxEf = 0;
 		Vector<XYData> dLine=new Vector<XYData>();
 		Vector<XYDataDouble> vELine=new Vector<XYDataDouble>();
 		Vector<XYDataDouble> vBLine=new Vector<XYDataDouble>();
@@ -348,8 +297,8 @@ public class ShowFeedingqbyhourActivity extends Activity implements OnTouchListe
 				calStart.add(Calendar.DATE, -6);
 
 
-				Calendar current=Calendar.getInstance();
-				current=(Calendar)calStart.clone();
+				//Calendar current=Calendar.getInstance();
+				Calendar current=(Calendar)calStart.clone();
 				int com=current.compareTo(calEnd);
 
 				while(current.compareTo(calEnd)<=0)
@@ -427,12 +376,58 @@ public class ShowFeedingqbyhourActivity extends Activity implements OnTouchListe
 
 				}
 
-
+				maxDomainValue = calEnd;
 				int lc=dLine.size();
 
 				int bc=vBLine.size();
 
 				int ec=vELine.size();
+
+				maxDuration = (Collections.max(dLine, new Comparator<ShowFeedingqbyhourActivity.XYData>() {
+
+
+					@Override
+					public int compare(ShowFeedingqbyhourActivity.XYData o1, ShowFeedingqbyhourActivity.XYData o2) {
+						if(o1.quanY > o2.quanY)
+							return 1;
+						else if(o1.quanY < o2.quanY)
+							return -1;
+						else
+							return 0;
+					}
+				})).quanY;
+
+				maxBf = (Collections.max(vBLine, new Comparator<ShowFeedingqbyhourActivity.XYDataDouble>() {
+
+
+					@Override
+					public int compare(ShowFeedingqbyhourActivity.XYDataDouble o1, ShowFeedingqbyhourActivity.XYDataDouble o2) {
+						if(o1.quanYD > o2.quanYD)
+							return 1;
+						else if(o1.quanYD < o2.quanYD)
+							return -1;
+						else
+							return 0;
+					}
+				})).quanYD;
+
+				maxEf = (Collections.max(vBLine, new Comparator<ShowFeedingqbyhourActivity.XYDataDouble>() {
+
+
+					@Override
+					public int compare(ShowFeedingqbyhourActivity.XYDataDouble o1, ShowFeedingqbyhourActivity.XYDataDouble o2) {
+						if(o1.quanYD > o2.quanYD)
+							return 1;
+						else if(o1.quanYD < o2.quanYD)
+							return -1;
+						else
+							return 0;
+					}
+				})).quanYD;
+
+				Integer[] maxValues = {maxDuration, (int)maxBf, (int)maxEf};
+				List<Integer> list = Arrays.asList(maxValues);
+				maxRangeValue = Collections.max(Arrays.asList(maxValues));
 
 				seriesdNumbers=toNumbers(dLine);
 				seriesbNumbers=toNumbersDouble(vBLine);
