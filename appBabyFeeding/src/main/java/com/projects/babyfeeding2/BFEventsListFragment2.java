@@ -45,15 +45,17 @@ public class BFEventsListFragment2 extends Fragment {
 	static final int LIST_BFEVENTS = 1;
 	boolean ounce, hours24; 
 	String locLanguage;
+	private static Calendar refDate;
 	
-		public static Fragment create(int pageNumber,SharedPreferences sp,Locale locale)
+		public static Fragment create(int pageNumber,SharedPreferences sp,Locale locale, Calendar refDate_in)
 		{
 	        BFEventsListFragment2 fragment = new BFEventsListFragment2();
 
 	        Bundle args = new Bundle();
 	        args.putInt("ARG_PAGE", pageNumber);
 	        int increment = pageNumber-251;
-	        Calendar calendar=Calendar.getInstance();
+			refDate = (Calendar)refDate_in.clone();
+			Calendar calendar = (Calendar)refDate_in.clone();
     		calendar.add(Calendar.DATE, increment);
     		int year=calendar.get(Calendar.YEAR);
     		int month=calendar.get(Calendar.MONTH);
@@ -97,6 +99,7 @@ public class BFEventsListFragment2 extends Fragment {
 			today.set(Calendar.MINUTE,0);
 			today.set(Calendar.HOUR,0);
 			Calendar pagerDay = Calendar.getInstance();
+
 			pagerDay.set(Calendar.DAY_OF_MONTH, day);
 			pagerDay.set(Calendar.MONTH, month);
 			pagerDay.set(Calendar.YEAR, year);
@@ -624,8 +627,7 @@ public class BFEventsListFragment2 extends Fragment {
 	    public Timestamp[] getDate(int position)
 	    {
 	    	Timestamp[] ts=new Timestamp[2];
-	    	Calendar calendar=Calendar.getInstance();
-	    	calendar.setTimeInMillis(System.currentTimeMillis());
+	    	Calendar calendar = (Calendar)refDate.clone();
 	    	if(position!=251)  
 	    	{	
 
@@ -635,7 +637,6 @@ public class BFEventsListFragment2 extends Fragment {
 
 	    	Calendar beginningOfDay = Calendar.getInstance();
 	    	Calendar endOfDay = Calendar.getInstance();
-
 	    	beginningOfDay.setTime(calendar.getTime());
 	    	beginningOfDay.set(Calendar.HOUR_OF_DAY, 0);
 	    	beginningOfDay.set(Calendar.MINUTE, 0);
