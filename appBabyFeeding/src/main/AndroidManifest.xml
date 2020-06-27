@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.projects.babyfeeding2"
-    android:versionCode="9"
-    android:versionName="1.8" >
+    package="com.projects.babyfeeding"
+    android:versionCode="11"
+    android:versionName="2.0" >
 
     <uses-sdk android:targetSdkVersion="29" />
 
@@ -15,14 +15,14 @@
         android:theme="@style/AppTheme"
         android:requestLegacyExternalStorage="true">
         <provider
-            android:name="com.projects.babyfeeding2.BabyFeedingProvider"
-            android:authorities="com.projects.babyfeeding2"
+            android:name="com.projects.babyfeeding.BabyFeedingProvider"
+            android:authorities="com.projects.babyfeeding"
             android:exported="false" >
             <grant-uri-permission android:pathPattern=".*" />
         </provider>
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.projects.babyfeeding2.fileprovider"
+            android:authorities="com.projects.babyfeeding.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
         <meta-data
@@ -33,7 +33,7 @@
 
 
         <activity
-            android:name="com.projects.babyfeeding2.BreastFeedingActivity"
+            android:name="com.projects.babyfeeding.BreastFeedingActivity"
             android:label="@string/title_activity_breast_feeding"
             android:theme="@style/BreastFeedingDialog" >
 
@@ -61,12 +61,12 @@
             android:label="@string/title_activity_main_activity" >
         </activity>
         <activity
-            android:name="com.projects.babyfeeding2.BreastPumpActivity"
+            android:name="com.projects.babyfeeding.BreastPumpActivity"
             android:label="@string/title_activity_breast_pump"
             android:theme="@style/BreastFeedingDialog" >
         </activity>
         <activity
-            android:name="com.projects.babyfeeding2.BabyNappyActivity"
+            android:name="com.projects.babyfeeding.BabyNappyActivity"
             android:label="@string/title_activity_baby_nappy"
             android:theme="@style/BreastFeedingDialog" >
         </activity>
@@ -75,11 +75,11 @@
             android:label="@string/title_activity_export_db" >
         </activity>
         <activity
-            android:name="com.projects.babyfeeding2.DisplayXMLDataActivity"
+            android:name="com.projects.babyfeeding.DisplayXMLDataActivity"
             android:label="@string/title_activity_display_xmldata" >
         </activity>
         <activity
-            android:name="com.projects.babyfeeding2.MainActivity3"
+            android:name="com.projects.babyfeeding.MainActivity3"
             android:label="@string/title_activity_main_activity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -88,19 +88,19 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.projects.babyfeeding2.ShowFeedingQActivity"
+            android:name="com.projects.babyfeeding.ShowFeedingQActivity"
             android:label="@string/title_activity_show_feeding_q" >
         </activity>
         <activity
-            android:name="com.projects.babyfeeding2.ShowBreastUsage"
+            android:name="com.projects.babyfeeding.ShowBreastUsage"
             android:label="@string/title_activity_show_breast_usage" >
         </activity>
         <activity
-            android:name="com.projects.babyfeeding2.ShowFeedingqbyhourActivity"
+            android:name="com.projects.babyfeeding.ShowFeedingqbyhourActivity"
             android:label="@string/title_activity_show_feedingqbyhour" >
         </activity>
         <activity
-            android:name="com.projects.babyfeeding2.CustomerEventActivity"
+            android:name="com.projects.babyfeeding.CustomerEventActivity"
             android:label="@string/title_activity_customer_event"
             android:theme="@style/BreastFeedingDialog" >
         </activity>
@@ -109,7 +109,7 @@
             android:label="@string/title_activity_show_user_preferences" >
         </activity>
         <activity
-            android:name="com.projects.babyfeeding2.UserPreferencesActivity"
+            android:name="com.projects.babyfeeding.UserPreferencesActivity"
             android:label="@string/title_activity_user_preferences"
             android:theme="@style/BreastFeedingDialog">
         </activity>
