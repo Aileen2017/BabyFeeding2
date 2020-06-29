@@ -74,8 +74,8 @@
     <string name="UpdateNappy">Update one nappy event</string>
     <string name="UpdatePump">Update one pump event</string>
     <string name="title_activity_show_feeding_q">Feeds Chart by Day</string>
-    <string name="menu_showFeedQbyDay">Chart total feeds by day</string>
-    <string name="menu_showFeedQbyHour">Chart total feeds by hour</string>
+    <string name="menu_showFeedQbyDay">Feeding pattern by day</string>
+    <string name="menu_showFeedQbyHour">Feeding pattern by hour</string>
     <string name="menu_showBreastU">Chart breast balance</string>
     <string name="title_activity_show_breast_usage">Breast Balance Chart</string>
     <string name="domainLabelDay">By Day</string>
@@ -86,8 +86,8 @@
     <string name="chartTitleFeedHour">How much has my baby eaten?</string>
     <string name="chartTitleBB">Breast Balance Chart</string>
     <string name="title_activity_show_feedingqbyhour">Feeds Chart by Hour</string>
-    <string name="legendBBL">Left Breast</string>
-    <string name="legendBBR">Right Breast</string>
+    <string name="legendBBL">Left</string>
+    <string name="legendBBR">Right</string>
     <string name="legendBreastfeed">Breastfeed</string>
     <string name="legendBottlefeed">Bottlefeed</string>
     <string name="legendPumpfeed">Pumpfeed</string>
