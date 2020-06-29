@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Vector;
 
+
 import com.androidplot.ui.Anchor;
 import com.androidplot.ui.HorizontalPositioning;
 import com.androidplot.ui.VerticalPositioning;
@@ -44,10 +45,13 @@ public class ShowFeedingQActivity extends Activity implements OnTouchListener {
 	long maxX;
 	long wminX;
 	long wmaxX;
-	int maxRangeValue;
+	int maxRangeValue = 600;
 	Number[] series1Numbers={0,0};
 	Number[] series2Numbers={0,0};
 	Number[] series3Numbers={0,0};
+
+
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -120,7 +124,7 @@ public class ShowFeedingQActivity extends Activity implements OnTouchListener {
 	//	plot.setRangeLowerBoundary(0, BoundaryMode.GROW);
 	//	plot.setDomainLowerBoundary(0, BoundaryMode.GROW);
 		plot.setDomainStep(StepMode.INCREMENT_BY_VAL, 24*3600*1000);
-		plot.setRangeStep(StepMode.INCREMENT_BY_VAL, 10);
+		plot.setRangeStep(StepMode.SUBDIVIDE, 10);
 
 		plot.getGraph().getLineLabelStyle(XYGraphWidget.Edge.BOTTOM).getPaint().setTextSize(30);
 		plot.getGraph().getLineLabelStyle(XYGraphWidget.Edge.LEFT).setFormat(Formatting.getDeci0());
@@ -140,6 +144,7 @@ public class ShowFeedingQActivity extends Activity implements OnTouchListener {
 			}
 
 	}
+
 
 
 	void configureRangeMaxMin(){
@@ -261,7 +266,6 @@ public class ShowFeedingQActivity extends Activity implements OnTouchListener {
 				String maxdays = c2.getString(c2.getColumnIndex("maxDay"));
 				//Log.i("MaxDay", c2.getString(c2.getColumnIndex("maxDay")));
 
-				Calendar cal=Calendar.getInstance();
 
 				Timestamp tsminDays=Timestamp.valueOf(mindays);
 				Calendar calStart=Calendar.getInstance();
@@ -276,8 +280,8 @@ public class ShowFeedingQActivity extends Activity implements OnTouchListener {
 				Timestamp[] ts2= BFUtilities.getDate(calEnd);
 				calEnd.setTimeInMillis(ts2[1].getTime());
 
-				Calendar current=Calendar.getInstance();
-				current=(Calendar)calStart.clone();
+
+				Calendar current=(Calendar)calStart.clone();
 				int com=current.compareTo(calEnd);
 
 				while(current.compareTo(calEnd)<=0)
@@ -375,7 +379,7 @@ public class ShowFeedingQActivity extends Activity implements OnTouchListener {
 					}
 				})).quanYD;
 
-				maxEf = (Collections.max(vBLine, new Comparator<XYDataDouble>() {
+				maxEf = (Collections.max(vELine, new Comparator<XYDataDouble>() {
 
 
 					@Override
