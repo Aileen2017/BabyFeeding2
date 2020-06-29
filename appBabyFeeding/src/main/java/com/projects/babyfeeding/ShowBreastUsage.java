@@ -45,7 +45,7 @@ public class ShowBreastUsage extends Activity implements OnTouchListener, OnLayo
 	private MyBarFormatter formatter2;
 	Number[] series1Numbers={0,0} ;
 	Number[] series2Numbers={0,0};
-	int maxRangeValue;
+	int maxRangeValue = 90;
 	long minX;
 	long maxX;
 	long wminX;
@@ -116,8 +116,6 @@ public class ShowBreastUsage extends Activity implements OnTouchListener, OnLayo
 
 
 	void configureRangeDomainStepValues(){
-		//	plot.setRangeLowerBoundary(0, BoundaryMode.GROW);
-		//	plot.setDomainLowerBoundary(0, BoundaryMode.GROW);
 
 		plot.setDomainStep(StepMode.INCREMENT_BY_VAL, 24*3600*1000);
 		plot.setRangeStep(StepMode.INCREMENT_BY_VAL, 10);
@@ -144,14 +142,6 @@ public class ShowBreastUsage extends Activity implements OnTouchListener, OnLayo
 		plot.setRangeUpperBoundary(0, BoundaryMode.FIXED);
 		plot.setRangeLowerBoundary(0, BoundaryMode.FIXED);
 
-		//plot.setRangeBottomMin(0);
-		//plot.setRangeBottomMax(0);
-
-
-		//plot.getDomainLabelWidget().setMarginBottom(0);
-
-		//plot.setRangeTopMin(plot.getCalculatedMaxY());
-		//plot.setRangeTopMax(plot.getCalculatedMaxY());
 
 	}
 
@@ -167,37 +157,17 @@ public class ShowBreastUsage extends Activity implements OnTouchListener, OnLayo
 
 
 	void configureLegend() {
-		//plot.getGraph().getRangeCursorPaint().setTextSize(3);
-		//plot.getGraph().getRangeOriginLinePaint().setTextSize(12);
-		//plot.getGraph().getDomainOriginLinePaint().setTextSize(8);
-		//	plot.getGraph().getDomainCursorPaint().setTextSize(3);
 
 		plot.getLegend().getTextPaint().setTextSize(30);
 		plot.getLegend().setPadding(0,0,0,0);
 		plot.getLegend().position(30, HorizontalPositioning.ABSOLUTE_FROM_RIGHT, 30, VerticalPositioning.ABSOLUTE_FROM_BOTTOM);
-	/*	plot.getLegend().getIconSize().getHeight().setValue(15);
-		plot.getLegend().getIconSize().getWidth().setValue(15);
-		plot.getLegend().getHeightMetric().setValue(25);
-		plot.getLegend().getWidthMetric().setValue(0.7f);
-		plot.getLegend().getPositionMetrics().getXPositionMetric().setValue(4);*/
+
 		plot.getLegend().getPositionMetrics().setAnchor(Anchor.RIGHT_BOTTOM);
 		plot.getGraph().getDomainGridLinePaint().setColor(0xffb6e9b5);
 		plot.getGraph().getRangeGridLinePaint().setColor(0xffb6e9b5);
 		plot.getGraph().getGridBackgroundPaint().setColor(0xFFFFFF);
 
-		MyBarRenderer renderer = ((MyBarRenderer)plot.getRenderer(MyBarRenderer.class));
 
-		//renderer.setBarGap(30);
-
-
-
-		//renderer.setBarRenderStyle(BarRenderer.BarRenderStyle.SIDE_BY_SIDE);
-		//renderer.setBarWidthStyle(BarRenderer.BarWidthStyle.VARIABLE_WIDTH);
-		//renderer.setBarWidthStyle(BarRenderer.BarWidthStyle.FIXED_WIDTH);
-		//renderer.setBarWidth(15);
-
-
-		//plot.getLegendWidget().setMarginBottom(30);
 	}
 
 	void configureGraph(){
@@ -205,28 +175,24 @@ public class ShowBreastUsage extends Activity implements OnTouchListener, OnLayo
 		plot.getGraph().setMarginBottom(100);
 		plot.getGraph().setMarginLeft(100);
 		plot.getGraph().setMarginRight(50);
-		//plot.getGraph().setPadding(30, 10, 30, 0);
+
 	}
 
 	void configureDomainAndRangeTitle(){
 
-		//plot.getDomainTitle().setAnchor(Anchor.LEFT_TOP);
+
 		plot.getDomainTitle().getLabelPaint().setTextSize(30);
-		//plot.getDomainTitle().setPaddingBottom(15);
+
 		plot.getDomainTitle().setAutoPackEnabled(true);
 		plot.getDomainTitle().position(30, HorizontalPositioning.ABSOLUTE_FROM_LEFT, 50, VerticalPositioning.ABSOLUTE_FROM_BOTTOM);
 
 
-		//plot.getRangeTitle().setAnchor(Anchor.CENTER);
-		//plot.getRangeTitle().setMarginTop(0);
 		plot.getRangeTitle().getLabelPaint().setTextSize(30);
-		//plot.getRangeTitle().setPaddingLeft(15);
+
 		plot.getRangeTitle().setAutoPackEnabled(true);
 		plot.getRangeTitle().position(30, HorizontalPositioning.ABSOLUTE_FROM_LEFT, 30, VerticalPositioning.ABSOLUTE_FROM_TOP);
 
 
-		//plot.getTitleWidget().setMarginTop(5);
-		//plot.getTitleWidget().getLabelPaint().setTypeface(Typeface.SANS_SERIF);
 
 	}
 
@@ -375,11 +341,7 @@ public class ShowBreastUsage extends Activity implements OnTouchListener, OnLayo
 			Timestamp[] ts2= BFUtilities.getDate(calEnd);
 			calEnd.setTimeInMillis(ts2[1].getTime());
 
-			Calendar current=Calendar.getInstance();
-			current=(Calendar)calStart.clone();
-			int com=current.compareTo(calEnd);
-
-
+			Calendar current=(Calendar)calStart.clone();
 
 			while(current.compareTo(calEnd)<=0)
 			{
