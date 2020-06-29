@@ -46,8 +46,8 @@ public class ShowFeedingqbyhourActivity extends Activity implements OnTouchListe
 	long maxX;
 	long wminX;
 	long wmaxX;
-	int maxRangeValue;
-	Calendar maxDomainValue;
+	int maxRangeValue = 180;
+	Calendar maxDomainValue ;
 	Number[] seriesdNumbers={0,0};
 	Number[] seriesbNumbers={0,0};
 	Number[] serieseNumbers={0,0};
@@ -75,11 +75,11 @@ public class ShowFeedingqbyhourActivity extends Activity implements OnTouchListe
 		renderer.setBarOrientation(MyBarRenderer.BarOrientation.SIDE_BY_SIDE);
 
 		renderer.setBarGroupWidth(BarRenderer.BarGroupWidthMode.FIXED_WIDTH, 60);
-
+	//	plot.setOnTouchListener(this);
 		PanZoom.attach(plot, PanZoom.Pan.HORIZONTAL, PanZoom.Zoom.STRETCH_HORIZONTAL);
 
 		configureDomainRangeMaxMin();
-		plot.setOnTouchListener(this);
+
 		//plot.addOnLayoutChangeListener(this);
 	}
 
@@ -125,25 +125,13 @@ public class ShowFeedingqbyhourActivity extends Activity implements OnTouchListe
 		plot.setRangeStep(StepMode.INCREMENT_BY_VAL, 10);
 
 		plot.getGraph().getLineLabelStyle(XYGraphWidget.Edge.BOTTOM).setFormat(new SimpleDateFormat("H:00 E"));
-				      /* plot.setDomainValueFormat(new SimpleDateFormat("H:00 E")
-	       {
-	    	   @Override
-	    	   public StringBuffer format(Date date, StringBuffer buffer, FieldPosition fieldPos)
-	    	   {
-	    		   Calendar cal = Calendar.getInstance();
-	    		   cal.setTime(date);
-	    		   cal.add(Calendar.MINUTE, 30);
-	    		   return super.format(cal.getTime(), buffer, fieldPos);
-	    	   }
-	       });*/
-
 		plot.getGraph().getLineLabelStyle(XYGraphWidget.Edge.BOTTOM).getPaint().setTextSize(30);
 		plot.getGraph().getLineLabelStyle(XYGraphWidget.Edge.LEFT).setFormat(Formatting.getDeci0());
 		plot.getGraph().getLineLabelStyle(XYGraphWidget.Edge.LEFT).getPaint().setTextSize(30);
 
 
-		//plot.setLinesPerRangeLabel(5);
-		//plot.setLinesPerDomainLabel(2);
+		plot.setLinesPerRangeLabel(5);
+		plot.setLinesPerDomainLabel(2);
 
 		//plot.setRangeUpperBoundary(0, BoundaryMode.FIXED);
 		//plot.setRangeLowerBoundary(0, BoundaryMode.FIXED);
@@ -154,8 +142,10 @@ public class ShowFeedingqbyhourActivity extends Activity implements OnTouchListe
 
 	void configureDomainRangeMaxMin(){
 		plot.calculateMinMaxVals();
-		Calendar lowerBoundary = Calendar.getInstance();
-		lowerBoundary.add(Calendar.DAY_OF_MONTH, -1);
+		//Calendar lowerBoundary = Calendar.getInstance();
+		//lowerBoundary.add(Calendar.DAY_OF_MONTH, -1);
+		if(maxDomainValue == null)
+			maxDomainValue = Calendar.getInstance();
 		Calendar lowerDomainBoudary = (Calendar)maxDomainValue.clone();
 		lowerDomainBoudary.add(Calendar.HOUR, -12);
 		plot.setDomainBoundaries(lowerDomainBoudary.getTime().getTime(), maxDomainValue.getTime().getTime(), BoundaryMode.FIXED);
@@ -284,14 +274,16 @@ public class ShowFeedingqbyhourActivity extends Activity implements OnTouchListe
 				Timestamp tsmaxDays=Timestamp.valueOf(maxdays);
 				Calendar calEnd=Calendar.getInstance();
 				calEnd.setTimeInMillis(tsmaxDays.getTime());
-				Timestamp[] ts2= BFUtilities.getDate(calEnd);
-				calEnd.setTimeInMillis(ts2[1].getTime());
+				calEnd.set(Calendar.HOUR_OF_DAY, calEnd.get(Calendar.HOUR_OF_DAY)+2);
+				calEnd.set(Calendar.MINUTE, 0);
+				calEnd.set(Calendar.SECOND, 0);
+				//Timestamp[] ts2= BFUtilities.getDate(calEnd);
+				//calEnd.setTimeInMillis(ts2[1].getTime());
 
 				Calendar calStart=(Calendar)calEnd.clone();
 				calStart.add(Calendar.DATE, -6);
 
 
-				//Calendar current=Calendar.getInstance();
 				Calendar current=(Calendar)calStart.clone();
 				int com=current.compareTo(calEnd);
 
@@ -405,7 +397,7 @@ public class ShowFeedingqbyhourActivity extends Activity implements OnTouchListe
 					}
 				})).quanYD;
 
-				maxEf = (Collections.max(vBLine, new Comparator<ShowFeedingqbyhourActivity.XYDataDouble>() {
+				maxEf = (Collections.max(vELine, new Comparator<ShowFeedingqbyhourActivity.XYDataDouble>() {
 
 
 					@Override
